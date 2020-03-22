@@ -14,9 +14,9 @@ const ensureEnvVar = (envVar: string): string => {
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     console.log('Start of handler')
   try {
-    const sendgridKey = ensureEnvVar("sendgrid_api_key");
-    const to = ensureEnvVar("personal_email");
-    const from = ensureEnvVar("website_email");
+    const sendgridKey = ensureEnvVar("SENDGRID_API_KEY");
+    const to = ensureEnvVar("PERSONAL_EMAIL");
+    const from = ensureEnvVar("WEBSITE_EMAIL");
     console.log('after env vars')
 
     sgMail.setApiKey(sendgridKey);
