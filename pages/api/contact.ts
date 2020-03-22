@@ -12,7 +12,8 @@ const ensureEnvVar = (envVar: string): string => {
 };
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
-    console.log('Start of handler')
+  console.log('Start of handler')
+  console.log("here is process.env", JSON.stringify(process.env, null, 4))
   try {
     const sendgridKey = ensureEnvVar("SENDGRID_API_KEY");
     const to = ensureEnvVar("PERSONAL_EMAIL");
