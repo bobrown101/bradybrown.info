@@ -1,8 +1,8 @@
 module.exports = {
     target: "serverless",
     env: {
-        PERSONAL_EMAIL: "@personal_email_now_secret",
-        SENDGRID_API_KEY: "@sendgrid_api_key_now_secret",
-        WEBSITE_EMAIL: "@website_email_now_secret"
+        PERSONAL_EMAIL: process.env.PERSONAL_EMAIL,
+        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+        WEBSITE_EMAIL: process.env.WEBSITE_EMAIL
     }
 }
