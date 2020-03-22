@@ -12,6 +12,10 @@ bradybrowndev:
   component: "serverless-next.js"
   inputs:
     domain: bradybrown.info
+    env:
+      PERSONAL_EMAIL: ${env.PERSONAL_EMAIL}
+      WEBSITE_EMAIL: ${env.WEBSITE_EMAIL}
+      SENDGRID_API_KEY: ${env.SENDGRID_API_KEY}
 
 # database:
 #   component: '@serverless/aws-dynamodb'
