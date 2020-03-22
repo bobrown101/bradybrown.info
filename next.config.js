@@ -1,3 +1,4 @@
+console.log("Hey brady - this is build", JSON.stringify(process.env, null, 4))
 module.exports = {
     target: "serverless",
     env: {
