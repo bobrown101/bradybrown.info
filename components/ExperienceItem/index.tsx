@@ -33,7 +33,7 @@ const ExperienceItem = ({
         </div>
         <div>
             <ul>
-            {content.map(str => <li>{str}</li>)}
+            {content.map((str, index) => <li key={`${str}-${index}`}>{str}</li>)}
             </ul>
             
         </div>

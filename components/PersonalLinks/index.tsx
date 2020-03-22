@@ -9,9 +9,9 @@ const PersonalLinks = ({ links }: { links: Links }) => {
   return (
     <React.Fragment>
       <div>
-        {links.map(item => {
+        {links.map((item, index) => {
           return (
-            <span>
+            <span key={`${item.url}-${item.icon}`}>
               <a href={item.url}>
                 <img src={item.icon} />
               </a>

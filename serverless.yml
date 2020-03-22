@@ -11,18 +11,15 @@
 bradybrowndev:
   component: "serverless-next.js"
   inputs:
-    domain: "bradybrown.info"
-    # build:
-    #   env:
-    #     API_URL: ${api.url}
+    domain: bradybrown.info
 
-database:
-  component: '@serverless/aws-dynamodb'
-  inputs:
-    region: us-east-1
-    attributeDefinitions:
-      - AttributeName: 'pk'
-        AttributeType: 'S'
-    keySchema:
-      - AttributeName: 'pk'
-        KeyType: 'HASH'
+# database:
+#   component: '@serverless/aws-dynamodb'
+#   inputs:
+#     region: us-east-1
+#     attributeDefinitions:
+#       - AttributeName: 'pk'
+#         AttributeType: 'S'
+#     keySchema:
+#       - AttributeName: 'pk'
+#         KeyType: 'HASH'

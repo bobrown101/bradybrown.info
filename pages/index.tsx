@@ -1,20 +1,19 @@
 import Title from "../components/Title";
 import Header from "../components/Header";
 import PersonalLinks from "../components/PersonalLinks";
-import CircleImage from "../components/CircleImage";
 import Section from "../components/Section";
 import Paragraph from "../components/Paragraph";
 import Bold from "../components/Bold";
 import ExperienceItem from "../components/ExperienceItem";
 import GlobalStyles from "../components/GlobalStyles";
+import Link from 'next/link'
 
-export default function Index() {
+export default () => {
   return (
     <div>
       <GlobalStyles />
       <Header>
         <Title>Brady Brown</Title>
-        {/* <CircleImage src="/images/profile_pic.png" size="5rem"/> */}
         <PersonalLinks
           links={[
             {
@@ -27,6 +26,9 @@ export default function Index() {
             }
           ]}
         />
+        <Link href="/contact">
+          <a className="styled">Contact Me</a>
+        </Link>
       </Header>
       <Section title={"ABOUT"}>
         <Paragraph>
