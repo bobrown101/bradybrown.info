@@ -12,11 +12,14 @@ export default ({
   className = "",
   buttonState = ButtonStates.DEFAULT,
   children,
+  disabled,
   ...props
 }: {
   className?: string;
   buttonState?: ButtonStates;
   children?: React.ReactNode;
+  disabled?: boolean,
+  props?: React.HTMLProps<HTMLButtonElement>
 }) => {
   const [currentClass, setCurrentClass] = useState(buttonState);
   const [animationFinished, setAnimationFinished] = useState(true);
@@ -39,15 +42,25 @@ export default ({
       <button
         {...props}
         className={`${className} ${currentClass}`}
+        disabled={disabled}
         ref={buttonRef}
       >
         {buttonState === ButtonStates.DEFAULT && children}
-        <div
-          className={innerCircleClass}
-          onAnimationIteration={onAnimationIteration}
-        >
-          {buttonState === ButtonStates.SUCCESS && <div className="check" />}
-        </div>
+        {buttonState !== ButtonStates.ERROR && (
+          <div
+            className={innerCircleClass}
+            onAnimationIteration={onAnimationIteration}
+          >
+            <div className="check-holder">
+              {buttonState === ButtonStates.SUCCESS && (
+                <div className="check" />
+              )}
+            </div>
+          </div>
+        )}
+        {buttonState === ButtonStates.ERROR && (
+            <div>Error - please try again later</div>
+        )}
       </button>
       <style jsx>
         {`
@@ -67,18 +80,31 @@ export default ({
             margin: 0 auto; /* Center the element */
           }
 
+          button.active {
+            box-shadow: 0rem 0rem 0rem 0.2rem;
+          }
+
+          button.error {
+              background-color: #fea0a0;
+              color: black;
+          }
+
+          .check-holder {
+            transform: rotate(45deg) translate(0rem, 0.1rem);
+          }
           .check {
             display: inline-block;
-            transform: rotate(45deg) translate(-0.1rem, -0.1rem);
             height: 1rem;
             width: 0.5rem;
             border-bottom: 0.5rem solid black;
             border-right: 0.5rem solid black;
             margin: 0 auto;
-
-            animation: bounceIn;
+            animation-name: bounceIn;
             animation-duration: 1s;
-            animation-fill-mode: both;
+            animation-timing-function: ease;
+            animation-delay: 0.01s;
+            animation-fill-mode: forwards;
+            opacity: 0;
           }
 
           button.loading {
@@ -126,62 +152,52 @@ export default ({
           @keyframes pulse-button {
             0% {
               transform: scale(1);
+              -webkit-transform: scale(1);
             }
             50% {
               transform: scale(0.8);
+              -webkit-transform: scale(0.8);
             }
             100% {
               transform: scale(1);
+              -webkit-transform: scale(1);
             }
           }
 
           @keyframes pulse-inner {
             0% {
               transform: scale(0);
+              -webkit-transform: scale(0);
             }
             50% {
               transform: scale(0.8);
+              -webkit-transform: scale(0.8);
             }
             100% {
               transform: scale(0);
+              -webkit-transform: scale(0);
             }
           }
 
           @keyframes bounceIn {
-            from,
-            20%,
-            40%,
-            60%,
-            80%,
-            to {
-              animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            }
-
             0% {
               opacity: 0;
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(0.3, 0.3, 0.3);
+              transform: scale(0.3);
+              -webkit-transform: scale(0.3);
             }
-
-            20% {
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(1.1, 1.1, 1.1);
-            }
-
-            40% {
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(0.9, 0.9, 0.9);
-            }
-
-            60% {
+            50% {
               opacity: 1;
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(1.03, 1.03, 1.03);
+              transform: scale(1.05);
+              -webkit-transform: scale(1.05);
             }
-
-            80% {
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(0.97, 0.97, 0.97);
+            70% {
+              transform: scale(0.9);
+              -webkit-transform: scale(0.9);
             }
-
-            to {
+            100% {
               opacity: 1;
-              transform: rotate(45deg) translate(-0.1rem, -0.1rem) scale3d(1, 1, 1);
+              transform: scale(1);
+              -webkit-transform: scale(1);
             }
           }
         `}

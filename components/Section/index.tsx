@@ -18,13 +18,13 @@ const Section = ({
             <hr />
           </header>
         )}
-        {children}
+        <div className="section-content">{children}</div>
       </section>
       <style jsx>{`
         section {
-            margin: 2rem;
-            margin-left: auto;
-            margin-right: auto;
+          margin: 2rem;
+          margin-left: auto;
+          margin-right: auto;
         }
         header {
           text-align: center;
@@ -58,14 +58,19 @@ const Section = ({
           margin-bottom: 2.5rem;
         }
 
-        @media (min-width: 666px) {
-            section {
-                max-width: 40rem;
-            }
+        .section-content {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
 
-            h2 {
-                font-size: 2.5rem;
-            }
+        @media (min-width: 666px) {
+          section {
+            max-width: 40rem;
+          }
+
+          h2 {
+            font-size: 2.5rem;
+          }
         }
       `}</style>
     </React.Fragment>

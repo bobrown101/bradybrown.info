@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-const mainColor = "#feeea0"
+const mainColor = "#feeea0";
 const GlobalStyles: FC = () => {
   return (
     <style global jsx>{`
@@ -27,32 +27,34 @@ const GlobalStyles: FC = () => {
       }
 
       a.styled {
-        background:
-           linear-gradient(
-             to bottom, ${mainColor} 0%,
-             ${mainColor} 100%
-           );
-          background-position: 0 100%;
-          background-repeat: repeat-x;
-          background-size: 4px 4px;
+        background: linear-gradient(
+          to bottom,
+          ${mainColor} 0%,
+          ${mainColor} 100%
+        );
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        background-size: 4px 4px;
         color: #000;
         text-decoration: none;
-        transition: background-size .2s;
+        transition: background-size 0.2s;
       }
-      
+
       a.styled:hover {
         background-size: 4px 50px;
       }
 
-      form {
-        padding: 1rem;
+      a.nav-link {
+        margin-bottom: 1rem;
+        display: inline-block;
       }
 
-      input, textarea {
+      input,
+      textarea {
         border: 1px solid black;
-        border-radius: .2rem;
+        border-radius: 0.2rem;
         display: block;
-        padding: .2rem;
+        padding: 0.2rem;
         margin-bottom: 1rem;
         width: 100%;
         box-sizing: border-box;
@@ -63,15 +65,24 @@ const GlobalStyles: FC = () => {
         font-style: italic;
       }
 
-      input:active, textarea:active, input:focus, textarea:focus {
+      input:active,
+      textarea:active,
+      input:focus,
+      textarea:focus {
         box-shadow: 0.2rem 0.2rem 0rem 0.1rem ${mainColor};
+      }
+
+      form .error {
+        display: block;
+        color: red;
+        font-style: italic;
       }
 
       @media (min-width: 666px) {
         * {
-              font-size: 1.2rem;
-              line-height: 1.8rem;
-          }
+          font-size: 1.2rem;
+          line-height: 1.8rem;
+        }
       }
     `}</style>
   );

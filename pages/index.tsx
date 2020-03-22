@@ -14,6 +14,9 @@ export default () => {
       <GlobalStyles />
       <Header>
         <Title>Brady Brown</Title>
+        <Link href="/contact">
+          <a className="styled nav-link">Contact Me</a>
+        </Link>
         <PersonalLinks
           links={[
             {
@@ -26,9 +29,6 @@ export default () => {
             }
           ]}
         />
-        <Link href="/contact">
-          <a className="styled">Contact Me</a>
-        </Link>
       </Header>
       <Section title={"ABOUT"}>
         <Paragraph>
