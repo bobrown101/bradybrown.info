@@ -13,15 +13,12 @@ const ensureEnvVar = (envVar: string): string => {
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
   console.log('Start of handler')
-  console.log("here is process.env", JSON.stringify(process.env, null, 4))
   try {
     const sendgridKey = ensureEnvVar("SENDGRID_API_KEY");
     const to = ensureEnvVar("PERSONAL_EMAIL");
     const from = ensureEnvVar("WEBSITE_EMAIL");
-    console.log('after env vars')
 
     sgMail.setApiKey(sendgridKey);
-    console.log('after setApiKey')
 
     const msg = {
       to,
@@ -38,11 +35,10 @@ ${_req.body.message}
       `
     };
     const result = await sgMail.send(msg);
-    console.log('after sgMail.send', result)
     return res.json({ success: true });
   } catch (error) {
-    console.error("There was an error", JSON.stringify(error));
-    res.json({ error: "5"+ JSON.stringify(error) + error.message + JSON.stringify(process.env) });
+    console.error("There was an error", error.message);
+    res.json({ error: error.message});
   }
 };
 export default handler;
