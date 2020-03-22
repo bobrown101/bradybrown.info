@@ -35,7 +35,10 @@ ${_req.body.message}
       `
     };
     const result = await sgMail.send(msg);
-    console.log(result)
+    console.log("Below is the sendgrid response body")
+    console.log(result[0].body)
+    console.log("Finished priting the sendgrid response body")
+
     return res.json({ success: true });
   } catch (error) {
     console.error("There was an error", error.message);
