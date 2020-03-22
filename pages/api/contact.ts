@@ -35,6 +35,7 @@ ${_req.body.message}
       `
     };
     const result = await sgMail.send(msg);
+    console.log(result)
     return res.json({ success: true });
   } catch (error) {
     console.error("There was an error", error.message);
