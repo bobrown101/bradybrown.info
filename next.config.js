@@ -1,10 +1,8 @@
-require('dotenv').config()
-
 module.exports = {
     target: "serverless",
     env: {
-        PERSONAL_EMAIL: process.env.PERSONAL_EMAIL,
-        SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-        WEBSITE_EMAIL: process.env.WEBSITE_EMAIL
+        personal_email: process.env.personal_email,
+        sendgrid_api_key: process.env.sendgrid_api_key,
+        website_email: process.env.website_email
     }
 }
