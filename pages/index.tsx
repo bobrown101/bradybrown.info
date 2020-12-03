@@ -32,12 +32,21 @@ export default () => {
       </Header>
       <Section title={"ABOUT"}>
         <Paragraph>
-          I am a <Bold>Software Engineering</Bold> major at the Rochester
-          Institute of Technology, and an incoming Software Engineer at Hubspot
-          in Cambridge, MA.
+          I am a <Bold>Software Engineer @ Hubspot</Bold> in Boston, MA and graduated from 
+          the Rochester Institute of Technology in May 2020 with a BS Software Engineering.
         </Paragraph>
       </Section>
       <Section title={"EXPERIENCE"}>
+      <ExperienceItem
+          company={"Hubspot – CRM Datasets"}
+          dateFrom={"08/2020"}
+          dateTo={"Present"}
+          position={"Software Engineer"}
+          location={"Boston, MA"}
+          content={[
+          
+          ]}
+        />
         <ExperienceItem
           company={"MassMutual – Digital Experience"}
           dateFrom={"05/2018"}
