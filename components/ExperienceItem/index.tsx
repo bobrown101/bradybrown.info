@@ -13,7 +13,7 @@ const ExperienceItem = ({
   dateTo: string;
   position: string;
   location: string;
-  content: string[];
+  content: React.ReactNode[];
 }) => {
     const rowHeight = "2rem";
   return (

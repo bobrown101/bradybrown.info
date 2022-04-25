@@ -40,7 +40,7 @@ ${_req.body.message}
     console.log("Finished priting the sendgrid response body")
 
     return res.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("There was an error", error.message);
     res.json({ error: error.message});
   }

@@ -32,19 +32,32 @@ export default () => {
       </Header>
       <Section title={"ABOUT"}>
         <Paragraph>
-          I am a <Bold>Software Engineer @ Hubspot</Bold> in Boston, MA and graduated from 
-          the Rochester Institute of Technology in May 2020 with a BS Software Engineering.
+          I am a <Bold>Senior Software Engineer @ Hubspot</Bold> in Boston, MA.
+          
+          I focus on building frontend web applications at enterprise scale.
         </Paragraph>
       </Section>
       <Section title={"EXPERIENCE"}>
       <ExperienceItem
-          company={"Hubspot – CRM Datasets"}
-          dateFrom={"08/2020"}
+          company={"Hubspot – CRM"}
+          dateFrom={"11/2021"}
           dateTo={"Present"}
+          position={"Senior Software Engineer"}
+          location={"Boston, MA"}
+          content={[
+          `Acted as a Senior Sotware Engineer (Frontend/React) on the highest trafficked page at all of Hubspot (over 1 million weekly active users)`,
+          `Proposed, planned, developed, and shipped multiple new features that added value to our customers tied directly to MRR increases`,
+          `DRI'ed multiple company wide refactors, some spanning over 80+ product teams`,
+          <i>Tech Stack: React/Redux/Graphql+Apollo/Feature Flags/New Relic/Sentry</i>
+          ]}
+        />
+      <ExperienceItem
+          company={"Hubspot – CRM"}
+          dateFrom={"08/2020"}
+          dateTo={"10/2021"}
           position={"Software Engineer"}
           location={"Boston, MA"}
           content={[
-          
           ]}
         />
         <ExperienceItem
@@ -74,9 +87,7 @@ export default () => {
           content={[
             `Acted as a key contributor to a big data / data fusion application
           developed for the Office of Naval Research in an Agile team
-          environment. It was created with Java/Spring and use cases
-          included identifying smuggling, human trafficking, illegal
-          operations under shell corporations, etc.`
+          environment (created with Java/Spring).`
           ]}
         />
         <ExperienceItem
